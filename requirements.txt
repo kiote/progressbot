@@ -1,3 +1,15 @@
+astroid==1.4.5
+colorama==0.3.7
+Flask==0.10.1
 GDAL==1.11.3
+itsdangerous==0.24
+Jinja2==2.8
+lazy-object-proxy==1.2.2
+MarkupSafe==0.23
+pep8==1.7.0
+pylint==1.5.5
+six==1.10.0
 vboxapi==1.0
 virtualenv==15.0.1
+Werkzeug==0.11.9
+wrapt==1.10.8
