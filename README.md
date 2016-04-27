@@ -7,3 +7,7 @@ There are a lot of the same apps created already: https://exist.io/blog/habit-ap
 # Trello board
 
 https://trello.com/b/Yr8UsSec/progress-bot
+
+# Mind Map
+
+https://www.mindmeister.com/686860905/progress-bot
