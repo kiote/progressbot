@@ -11,3 +11,7 @@ https://trello.com/b/Yr8UsSec/progress-bot
 # Mind Map
 
 https://www.mindmeister.com/686860905/progress-bot
+
+# Try it
+
+https://telegram.me/Progress2Bot
