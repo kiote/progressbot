@@ -2,6 +2,7 @@ astroid==1.4.5
 colorama==0.3.7
 Flask==0.10.1
 GDAL==1.11.3
+gunicorn==19.4.5
 itsdangerous==0.24
 Jinja2==2.8
 lazy-object-proxy==1.2.2
