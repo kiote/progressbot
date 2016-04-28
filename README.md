@@ -15,3 +15,7 @@ https://www.mindmeister.com/686860905/progress-bot
 # Try it
 
 https://telegram.me/Progress2Bot
+
+# Heroku App
+
+https://progress2bot.herokuapp.com/
