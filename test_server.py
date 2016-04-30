@@ -13,7 +13,7 @@ class TestViews(TestCase):
 
     def test_some_json(self):
         response = self.client.get("/")
-        self.assertEquals(response.data, b'Hello World!')
+        self.assertEquals(response.data, b'Hello World!!')
 
 if __name__ == '__main__':
     unittest.main()
