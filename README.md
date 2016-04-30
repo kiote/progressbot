@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/kiote/progressbot.svg?branch=master)](https://travis-ci.org/kiote/progressbot)
+
 # Progress Bot
 
 Telegram bot for tracking (and improve!) your daily habits. You say what you've done, ProgressBot remembers it and gives you a good overview every month.
