@@ -11,9 +11,13 @@ class TestViews(TestCase):
         app.config['LIVESERVER_PORT'] = 8943
         return app
 
-    def test_some_json(self):
+    def test_get(self):
         response = self.client.get("/")
-        self.assertEquals(response.data, b'Hello World!!')
+        self.assertEquals(response.data, b'Not much to see here')
+
+    def test_empty_post(self):
+        response = self.client.post("/")
+        self.assertEquals(response.data, b'hi')
 
 if __name__ == '__main__':
     unittest.main()
