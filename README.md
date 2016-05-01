@@ -6,6 +6,10 @@ Telegram bot for tracking (and improve!) your daily habits. You say what you've 
 
 There are a lot of the same apps created already: https://exist.io/blog/habit-apps/ but I want a bot! So here it is. It based on a simple idea: track your progress every day (see [Seinfeld's method](http://lifehacker.com/281626/jerry-seinfelds-productivity-secret))
 
+## Telegram API
+
+it's based on [getting updates](https://core.telegram.org/bots/api#getting-updates) with callbacks from Telegram API.
+
 # Trello board
 
 https://trello.com/b/Yr8UsSec/progress-bot
