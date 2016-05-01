@@ -8,7 +8,8 @@ def hello():
     if request.method == "GET":
         return "Not much to see here"
     elif request.method == 'POST':
-        return request.form
+        print(request.form)
+        return "hi"
 
 if __name__ == "__main__":
     app.run()
