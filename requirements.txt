@@ -15,6 +15,8 @@ itsdangerous==0.24
 Jinja2==2.8
 lazy-object-proxy==1.2.2
 MarkupSafe==0.23
+mock==2.0.0
+pbr==1.9.1
 pep8==1.7.0
 pexpect==4.0.1
 pickleshare==0.7.2
