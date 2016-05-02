@@ -11,10 +11,10 @@ def hello():
         return "Not much to see here"
     elif request.method == 'POST':
         bot = telegram.Bot(token=os.getenv('TELEGRAM_TOKEN', 'empty_token'))
-        user_name = request.json["message"]["chat"]["username"]
-        chat_id = request.json["message"]["chat"]["id"]
-        bot.sendMessage(chat_id, text="Hi! %s" % user_name)
-        return "hi %s" % user_name
+        update = telegram.Update.de_json(request.json)
+        text = "Hi, %s!" % update.message.chat.username
+        bot.sendMessage(update.message.chat_id, text=text)
+        return text
 
 if __name__ == "__main__":
     app.run()
