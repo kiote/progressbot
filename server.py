@@ -1,7 +1,11 @@
+import os
+import telegram
+
 from flask import Flask
 from flask import request
-import telegram
-import os
+
+from chat.lingua import Lingua
+
 app = Flask(__name__)
 
 
@@ -12,7 +16,7 @@ def hello():
     elif request.method == 'POST':
         bot = telegram.Bot(token=os.getenv('TELEGRAM_TOKEN', 'empty_token'))
         update = telegram.Update.de_json(request.json)
-        text = "Hi, %s!" % update.message.chat.username
+        text = Lingua(update).respond()
         bot.sendMessage(update.message.chat_id, text=text)
         return text
 

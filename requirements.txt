@@ -27,6 +27,7 @@ pytest==2.9.1
 python-telegram-bot==4.0.1
 simplegeneric==0.8.1
 six==1.10.0
+state-machine==0.2.9
 traitlets==4.2.1
 Werkzeug==0.11.9
 wrapt==1.10.8
