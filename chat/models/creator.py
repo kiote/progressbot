@@ -8,7 +8,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String
 
 
-engine = create_engine(os.getenv('DATABASE_URL', 'sqlite:///:memory:'), echo=True)
+engine = create_engine(os.getenv('DATABASE_URL', 'sqlite:///chat/db/base.sqlite'), echo=True)
 Base = declarative_base()
 
 
