@@ -1,5 +1,7 @@
 import os
 
+import chat.config as config
+
 from state_machine import acts_as_state_machine
 from state_machine import State
 from state_machine import Event
@@ -20,15 +22,15 @@ class Cerebrum(object):
 
     def __init__(self, update):
         self.update = update.to_dict()
-        engine = create_engine(os.getenv('DATABASE_URL', 'sqlite:///chat/db/base.sqlite'), echo=True)
+        engine = create_engine(os.getenv('DATABASE_URL', config.DATABASE_URL), echo=True)
         Session = sessionmaker(bind=engine)
         self.session = Session()
 
     def get_respond(self):
-
         user_id = self.update['message']['from']['id']
         user_name = self.update['message']['from']['username']
-        dialog = self.session.query(Dialog).filter_by(user_id=user_id)
+        dialog = self.session.query(Dialog).filter_by(user_id=user_id).first()
+
         if dialog is None:
             dialog = Dialog(user_id=user_id, step=self.current_state)
             self.session.add(dialog)

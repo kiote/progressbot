@@ -22,6 +22,7 @@ pbr==1.9.1
 pep8==1.7.0
 pexpect==4.0.1
 pickleshare==0.7.2
+psycopg2==2.6.1
 ptyprocess==0.5.1
 py==1.4.31
 pylint==1.5.5
