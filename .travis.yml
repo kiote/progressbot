@@ -4,7 +4,11 @@ python:
 services:
   - postgresql
 before_script:
-  - psql -c 'create database progressbot;' -U postgres
+  - psql -c 'create database progressbot_test;' -U postgres
+
+env:
+  global:
+    - BUILD_ON_TRAVIS=true
 
 install: "pip install -r requirements.txt"
 script: python test_server.py
