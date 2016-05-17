@@ -35,5 +35,7 @@ class Cerebrum(object):
             dialog = Dialog(user_id=user_id, step=self.current_state)
             self.session.add(dialog)
             self.session.commit()
+        else:
+            return "Please enter new type"
 
         return "Hi, %s!" % user_name
