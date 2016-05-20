@@ -10,4 +10,6 @@ Occupation: Quality assurance engineer (tester)
 
 * He has 3 close friend with whom he usually meet by Thursday to drink some beer and to watch his favorite team plays.
 
-* 
+* He has newsbot on Telegram, some working groups chatting there as well.
+
+* He learns English to be able to pass interview, also he learns some Computer Science for the same reason.
