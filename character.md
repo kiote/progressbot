@@ -1,15 +1,13 @@
-Name: Andrey Fistashkin
+Name: Ekaterina Krivich
 
 City of origin: St.Petersburg
 
-Occupation: Quality assurance engineer (tester)
+Occupation: Software developer
 
-* Working on mobile software development company, making manual and auto-tests for this company's products.
+Goals:
 
-* He works at the office in downtown, lives in 5 metro stations away, always gets to work by metro.
+* Track day-by-day progress of such activities, as gym, non-fiction reading, language learning and others.
 
-* He has 3 close friend with whom he usually meet by Thursday to drink some beer and to watch his favorite team plays.
+* Tracking system must be able to show statistic.
 
-* He has newsbot on Telegram, some working groups chatting there as well.
-
-* He learns English to be able to pass interview, also he learns some Computer Science for the same reason.
+* Tracking system might initiate dialog (asking about progress).
