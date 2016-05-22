@@ -17,7 +17,7 @@ def hello():
         bot = telegram.Bot(token=os.getenv('TELEGRAM_TOKEN', 'empty_token'))
         update = telegram.Update.de_json(request.json)
         text = Lingua(update).respond()
-        bot.sendMessage(update.message.chat_id, text=text)
+        bot.sendMessage(update.message.chat_id, text=text, parse_mode='Markdown')
         return text
 
 if __name__ == "__main__":
