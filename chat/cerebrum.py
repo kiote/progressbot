@@ -1,6 +1,7 @@
 import os
 
 import chat.config as config
+from chat.phrases.ru import phrases
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -23,4 +24,4 @@ class Cerebrum(object):
         elif message_text.startswith('log'):
             return 'Done, log for event had been added.'
 
-        return "Hi, %s!" % user_name
+        return phrases["greeting"].format(user_name)
