@@ -1,7 +1,8 @@
 import os
 
 import chat.config as config
-from chat.phrases.ru import phrases
+from chat.phrases.ru import request
+from chat.phrases.ru import response
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -19,9 +20,10 @@ class Cerebrum(object):
         user_name = self.update['message']['from']['username']
         message_text = self.update['message']['text'].lower()
 
-        if message_text.startswith('add'):
-            return 'Done, new type had been added.'
-        elif message_text.startswith('log'):
-            return 'Done, log for event had been added.'
+        # main "command interface"
+        if message_text.startswith(request["add"]):
+            return response["new habit success"]
+        elif message_text.startswith(request["success"]):
+            return response["new habit log"]
 
-        return phrases["greeting"].format(user_name)
+        return response["greeting"].format(user_name)

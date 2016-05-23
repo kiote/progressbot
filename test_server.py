@@ -25,17 +25,17 @@ class TestViews(TestCase):
 
     @mock.patch('telegram.Bot')
     def test_new_type(self, mock):
-        _str_request = '{"message": {"message_id": 12, "text": "add new type", "from": {"last_name": "Krivich", "username": "Kiote", "id": 124557099, "first_name": "Ekaterina"}, "chat": {"last_name": "Krivich", "username": "Kiote", "id": 124557099, "type": "private", "first_name": "Ekaterina"}, "date": 1462140570}, "update_id": 627598290}'
+        _str_request = '{"message": {"message_id": 12, "text": "добавить new type", "from": {"last_name": "Krivich", "username": "Kiote", "id": 124557099, "first_name": "Ekaterina"}, "chat": {"last_name": "Krivich", "username": "Kiote", "id": 124557099, "type": "private", "first_name": "Ekaterina"}, "date": 1462140570}, "update_id": 627598290}'
         response = self.client.post("/", data=_str_request, content_type='application/json')
 
-        self.assertEqual(response.data, b'Done, new type had been added.')
+        self.assertTrue("Поздравляю" in response.data.decode('utf-8'))
 
     @mock.patch('telegram.Bot')
     def test_log_event(self, mock):
-        _str_request = '{"message": {"message_id": 12, "text": "log new type", "from": {"last_name": "Krivich", "username": "Kiote", "id": 124557099, "first_name": "Ekaterina"}, "chat": {"last_name": "Krivich", "username": "Kiote", "id": 124557099, "type": "private", "first_name": "Ekaterina"}, "date": 1462140570}, "update_id": 627598290}'
+        _str_request = '{"message": {"message_id": 12, "text": "успех", "from": {"last_name": "Krivich", "username": "Kiote", "id": 124557099, "first_name": "Ekaterina"}, "chat": {"last_name": "Krivich", "username": "Kiote", "id": 124557099, "type": "private", "first_name": "Ekaterina"}, "date": 1462140570}, "update_id": 627598290}'
         response = self.client.post("/", data=_str_request, content_type='application/json')
 
-        self.assertEqual(response.data, b'Done, log for event had been added.')
+        self.assertTrue("Отлично" in response.data.decode('utf-8'))
 
 if __name__ == '__main__':
     unittest.main()
