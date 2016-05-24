@@ -5,5 +5,4 @@ class Lingua(object):
         self.update = update
 
     def respond(self):
-        respond = Cerebrum(self.update).get_respond()
-        return respond
+        pass

@@ -1,4 +1,5 @@
 import os
+import datetime
 
 import chat.config as config
 from chat.phrases.ru import request
@@ -6,6 +7,8 @@ from chat.phrases.ru import response
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+
+from .models.creator import Habit
 
 class Cerebrum(object):
 
@@ -21,9 +24,25 @@ class Cerebrum(object):
         message_text = self.update['message']['text'].lower()
 
         # main "command interface"
+        # need some kind of Factory pattern here
         if message_text.startswith(request["add"]):
-            return response["new habit success"]
+            # check if we have no active habit yet
+            habit = self.session.query(Habit).filter_by(user_id=user_id, active=True).first()
+            if habit is None:
+                habit = Habit(user_id=user_id,
+                              active=True,
+                              name=self.get_habit_name(message_text),
+                              created_at=datetime.datetime.now(),
+                              successful_days=0)
+                self.session.add(habit)
+                self.session.commit()
+                return response["new habit success"]
+            else:
+                return response["can't create habit"]
         elif message_text.startswith(request["success"]):
             return response["new habit log"]
 
         return response["greeting"].format(user_name)
+
+    def get_habit_name(self, message):
+        return "Название привычки"

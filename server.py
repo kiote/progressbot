@@ -4,7 +4,7 @@ import telegram
 from flask import Flask
 from flask import request
 
-from chat.lingua import Lingua
+from chat.cerebrum import Cerebrum
 
 app = Flask(__name__)
 
@@ -16,7 +16,7 @@ def hello():
     elif request.method == 'POST':
         bot = telegram.Bot(token=os.getenv('TELEGRAM_TOKEN', 'empty_token'))
         update = telegram.Update.de_json(request.json)
-        text = Lingua(update).respond()
+        text = Cerebrum(update).get_respond()
         bot.sendMessage(update.message.chat_id, text=text, parse_mode='Markdown')
         return text
 
