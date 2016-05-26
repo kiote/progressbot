@@ -8,7 +8,7 @@ from chat.phrases.ru import response
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from .models.creator import Habit
+from .models.habit import Habit
 
 class Cerebrum(object):
 
@@ -22,6 +22,9 @@ class Cerebrum(object):
         user_id = self.update['message']['from']['id']
         user_name = self.update['message']['from']['username']
         message_text = self.update['message']['text'].lower()
+
+        # first, we need to check that we have at least one racord at habit table
+        # if we don't, need to wait till user add it
 
         # main "command interface"
         # need some kind of Factory pattern here
@@ -40,6 +43,8 @@ class Cerebrum(object):
             else:
                 return response["can't create habit"]
         elif message_text.startswith(request["success"]):
+            # need to check, of we have no success log for the last 20 hours yet
+            # if we have not, let's add this log
             return response["new habit log"]
 
         return response["greeting"].format(user_name)

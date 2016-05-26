@@ -11,4 +11,5 @@ env:
     - BUILD_ON_TRAVIS=true
 
 install: "pip install -r requirements.txt"
+before_script: python chat/models/creator.py
 script: python test_server.py
