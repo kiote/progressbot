@@ -9,6 +9,7 @@ before_script:
 env:
   global:
     - BUILD_ON_TRAVIS=true
+    - PYTHONPATH=.
 
 install: "pip install -r requirements.txt"
 before_script: python chat/models/creator.py
