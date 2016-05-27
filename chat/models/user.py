@@ -1,10 +1,7 @@
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy import Column, Integer, DateTime
 
-from .habit import Habit
-
-Base = declarative_base()
+from chat.config import Base
 
 
 class User(Base):
@@ -14,4 +11,4 @@ class User(Base):
     user_id = Column(Integer)
     created_at = Column(DateTime)
 
-    habits = relationship(Habit)
+    habits = relationship("Habit")

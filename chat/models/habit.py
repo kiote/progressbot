@@ -1,11 +1,10 @@
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy import Column, Integer, String
 from sqlalchemy import Boolean, DateTime, SmallInteger, ForeignKey
 
 from .success_log import SuccessLog
 
-Base = declarative_base()
+from chat.config import Base
 
 
 class Habit(Base):
