@@ -8,10 +8,6 @@ from .success_log import SuccessLog
 Base = declarative_base()
 
 
-def create_habits_table(engine):
-    Base.metadata.create_all(engine)
-
-
 class Habit(Base):
     __tablename__ = 'habits'
 

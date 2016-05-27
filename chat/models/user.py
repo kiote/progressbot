@@ -7,9 +7,6 @@ from .habit import Habit
 Base = declarative_base()
 
 
-def create_users_table(engine):
-    Base.metadata.create_all(engine)
-
 class User(Base):
     __tablename__ = 'users'
 
