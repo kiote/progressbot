@@ -12,7 +12,6 @@ class Habit(Base):
 
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer)
-    internal_user_id = Column(Integer, ForeignKey('users.id'))
     name = Column(String(120))
     active = Column(Boolean)
     created_at = Column(DateTime)
