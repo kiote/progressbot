@@ -2,7 +2,7 @@
 
 # Progress Bot
 
-Telegram bot for tracking (and improve!) your daily habits. You say what you've done, ProgressBot remembers it and gives you a good overview every month.
+This Telegram bot helps you to develop your habits. They say you need 21 days to create a new habit, so this bot will track you 21 days long until you succeed. 
 
 There are a lot of the same apps created already: https://exist.io/blog/habit-apps/ but I want a bot! So here it is. It based on a simple idea: track your progress every day (see [Seinfeld's method](http://lifehacker.com/281626/jerry-seinfelds-productivity-secret))
 
