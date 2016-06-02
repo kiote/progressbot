@@ -5,10 +5,12 @@ services:
   - postgresql
 before_script:
   - psql -c 'create database progressbot_test;' -U postgres
+  - python chat/models/creator.py
 
 env:
   global:
     - BUILD_ON_TRAVIS=true
+    - PYTHONPATH=.
 
 install: "pip install -r requirements.txt"
 script: python test_server.py
