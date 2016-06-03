@@ -10,6 +10,7 @@ from sqlalchemy.orm import sessionmaker
 
 from .models.habit import Habit
 
+
 class Cerebrum(object):
 
     def __init__(self, update):
@@ -41,7 +42,7 @@ class Cerebrum(object):
                 self.session.commit()
                 return response["new habit success"]
             else:
-                return response["can't create habit"]
+                return response["can't create habit"] + habit.name
         elif message_text.startswith(request["success"]):
             # need to check, of we have no success log for the last 20 hours yet
             # if we have not, let's add this log

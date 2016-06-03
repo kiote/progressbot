@@ -1,4 +1,5 @@
 Flask==0.10.1
+Flask-SQLAlchemy==2.1
 Flask-Testing==0.4.2
 gunicorn==19.4.5
 mock==2.0.0
