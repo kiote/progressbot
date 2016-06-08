@@ -10,7 +10,7 @@ from chat.models.habit import Habit
 from chat.models.success_log import SuccessLog
 
 
-User.metadata.drop_all()
+User.metadata.drop_all(engine)
 User.metadata.create_all(engine)
 Habit.metadata.create_all(engine)
 SuccessLog.metadata.create_all(engine)

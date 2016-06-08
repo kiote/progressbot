@@ -1,12 +1,10 @@
 import os
 import telegram
 
-from flask import Flask
 from flask import request
 
 from chat.cerebrum import Cerebrum
-
-app = Flask(__name__)
+from init import app
 
 
 @app.route("/", methods=["GET", "POST"])

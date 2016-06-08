@@ -8,7 +8,7 @@ from chat.phrases.ru import response
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from .models.habit import Habit
+from chat.models.habit import Habit
 
 
 class Cerebrum(object):

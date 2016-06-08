@@ -1,14 +1,13 @@
 from sqlalchemy.orm import relationship
-from sqlalchemy import Column, Integer, DateTime
 
-from chat.config import Base
+from init import db
 
 
-class User(Base):
+class User(db.Model):
     __tablename__ = 'users'
 
-    id = Column(Integer, primary_key=True)
-    user_id = Column(Integer)
-    created_at = Column(DateTime)
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer)
+    created_at = db.Column(db.DateTime)
 
     habits = relationship("Habit")

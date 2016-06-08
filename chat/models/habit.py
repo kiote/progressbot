@@ -1,21 +1,19 @@
 from sqlalchemy.orm import relationship
-from sqlalchemy import Column, Integer, String
-from sqlalchemy import Boolean, DateTime, SmallInteger, ForeignKey
 
-from .success_log import SuccessLog
+from chat.models.success_log import SuccessLog
 
-from chat.config import Base
+from init import db
 
 
-class Habit(Base):
+class Habit(db.Model):
     __tablename__ = 'habits'
 
-    id = Column(Integer, primary_key=True)
-    user_id = Column(Integer)
-    name = Column(String(120))
-    active = Column(Boolean)
-    created_at = Column(DateTime)
-    successful_days = Column(SmallInteger)
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer)
+    name = db.Column(db.String(120))
+    active = db.Column(db.Boolean)
+    created_at = db.Column(db.DateTime)
+    successful_days = db.Column(db.SmallInteger)
 
     success_log = relationship(SuccessLog)
 

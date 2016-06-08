@@ -1,12 +1,10 @@
-from sqlalchemy import Column, Integer, DateTime, ForeignKey
-
-from chat.config import Base
+from init import db
 
 
-class SuccessLog(Base):
+class SuccessLog(db.Model):
     __tablename__ = 'success_log'
 
-    id = Column(Integer, primary_key=True)
-    user_id = Column(Integer)
-    habit_id = Column(Integer, ForeignKey('habits.id'))
-    created_at = Column(DateTime)
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer)
+    habit_id = db.Column(db.Integer, db.ForeignKey('habits.id'))
+    created_at = db.Column(db.DateTime)
