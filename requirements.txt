@@ -1,3 +1,5 @@
+factory-boy==2.7.0
+fake-factory==0.5.7
 Flask==0.10.1
 Flask-SQLAlchemy==2.1
 Flask-Testing==0.4.2
