@@ -9,6 +9,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 from chat.models.habit import Habit
+from chat.models.success_log import SuccessLog
 
 
 class Cerebrum(object):
@@ -31,8 +32,9 @@ class Cerebrum(object):
         # need some kind of Factory pattern here
         if message_text.startswith(request["add"]):
             # check if we have no active habit yet
-            habit = self.session.query(Habit).filter_by(user_id=user_id, active=True).first()
+            habit = Habit.query.filter_by(user_id=user_id, active=True).first()
             if habit is None:
+                # create new habit
                 habit = Habit(user_id=user_id,
                               active=True,
                               name=self.get_habit_name(message_text),
@@ -44,9 +46,17 @@ class Cerebrum(object):
             else:
                 return response["can't create habit"] + habit.name
         elif message_text.startswith(request["success"]):
+            # obtain current habit
+            habit = Habit.query.filter_by(user_id=user_id, active=True).first()
             # need to check, of we have no success log for the last 20 hours yet
-            # if we have not, let's add this log
-            return response["new habit log"]
+            succeed_today = SuccessLog.query.filter(SuccessLog.created_at>=datetime.date.today(),
+                                                    SuccessLog.user_id==user_id,
+                                                    SuccessLog.habit_id==habit.id).first()
+            if succeed_today is None:
+                return response["new habit log"]
+            else:
+                # if we have not, let's add this log
+                return response["succeed today"]
 
         return response["greeting"].format(user_name)
 

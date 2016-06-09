@@ -7,6 +7,7 @@ from flask.ext.testing import TestCase
 from flask_sqlalchemy import SQLAlchemy
 
 from chat.models.habit import Habit
+from chat.models.success_log import SuccessLog
 
 class TestViews(TestCase):
     def setUp(self):
@@ -48,10 +49,24 @@ class TestViews(TestCase):
 
     @mock.patch('telegram.Bot')
     def test_log_event(self, mock):
+        self.db.session.query(SuccessLog).delete()
+        self.db.session.commit()
         _str_request = '{"message": {"message_id": 12, "text": "успех", "from": {"last_name": "Krivich", "username": "Kiote", "id": 124557099, "first_name": "Ekaterina"}, "chat": {"last_name": "Krivich", "username": "Kiote", "id": 124557099, "type": "private", "first_name": "Ekaterina"}, "date": 1462140570}, "update_id": 627598290}'
         response = self.client.post("/", data=_str_request, content_type='application/json')
 
         self.assertTrue("Отлично" in response.data.decode('utf-8'))
+
+    # @mock.patch('telegram.Bot')
+    # def test_succeed_today(self, mock):
+    #     for _ in range(2):
+    #         _str_request = '{"message": {"message_id": 12, "text": "успех", "from": {"last_name": "Krivich", "username": "Kiote", "id": 124557099, "first_name": "Ekaterina"}, "chat": {"last_name": "Krivich", "username": "Kiote", "id": 124557099, "type": "private", "first_name": "Ekaterina"}, "date": 1462140570}, "update_id": 627598290}'
+    #         response = self.client.post("/", data=_str_request, content_type='application/json')
+    #
+    #     print('*'*8)
+    #     print(response.data.decode('utf-8'))
+    #     print('*'*8)
+    #     self.assertTrue("Сегодня" in response.data.decode('utf-8'))
+
 
 if __name__ == '__main__':
     unittest.main()
