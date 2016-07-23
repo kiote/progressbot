@@ -10,6 +10,7 @@ There are a lot of the same apps created already: https://exist.io/blog/habit-ap
 
 1. set PYTHONPATH with `export PYTHONPATH=.` under project's directory
 2. set DATABASE_URL with `export DATABASE_URL=postgresql://progressbot:123456@localhost:5432/progressbot` (this is default url, change to your own)
+3. Initialize database with `python chat/models/creator.py`
 
 ## Telegram API
 
