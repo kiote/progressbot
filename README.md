@@ -9,7 +9,7 @@ There are a lot of the same apps created already: https://exist.io/blog/habit-ap
 ### Running locally
 
 1. set PYTHONPATH with `export PYTHONPATH=.` under project's directory
-2. set DATABASE_URL with `eport DATABASE_URL=postgresql://progressbot:123456@localhost:5432/progressbot` (this is default url, change to your own)
+2. set DATABASE_URL with `export DATABASE_URL=postgresql://progressbot:123456@localhost:5432/progressbot` (this is default url, change to your own)
 
 ## Telegram API
 
